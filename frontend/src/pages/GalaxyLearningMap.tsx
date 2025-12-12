@@ -90,7 +90,7 @@ interface Planet {
     id: string;
     name: string;
     color: string;
-    icon: JSX.Element;
+    icon: React.ReactNode;
     orbitRadius: number;
     orbitDuration: string;
     size: number;
