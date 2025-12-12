@@ -1,0 +1,539 @@
+/* 
+  EduLearn-AI : Official Hackathon Theme 
+  Style: Pixel-Neo + Minimal Luxe
+  Author: Antigravity
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap');
+
+:root {
+  /* --- Minimal Luxe Palette (Dark Base) --- */
+  --bg-deep: #030305;
+  --bg-app: #0a0a0f;
+  --bg-card: rgba(20, 20, 25, 0.4);
+  /* Glass base */
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* --- Pixel Neo Accents --- */
+  --primary: #6d28d9;
+  /* Deep Purple */
+  --primary-glow: #8b5cf6;
+  --accent: #06b6d4;
+  /* Cyan */
+  --accent-glow: #22d3ee;
+  --neon-green: #10b981;
+  --neon-pink: #ec4899;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --error: #ef4444;
+
+  /* --- Text --- */
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --text-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+
+  /* --- Spacing & Radius --- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 64px;
+
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* --- Fonts --- */
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-pixel: 'Press Start 2P', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(109, 40, 217, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 25%);
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+h1 {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  background-clip: text;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow:
+    0 4px 0 0 #4c1d95,
+    0 10px 20px rgba(109, 40, 217, 0.4);
+  transform: translateY(0);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 0 #4c1d95,
+    0 15px 30px rgba(109, 40, 217, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #4c1d95;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-border);
+}
+
+/* --- Animations --- */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+  }
+
+  20% {
+    clip-path: inset(92% 0 1% 0);
+  }
+
+  40% {
+    clip-path: inset(43% 0 1% 0);
+  }
+
+  60% {
+    clip-path: inset(25% 0 58% 0);
+  }
+
+  80% {
+    clip-path: inset(54% 0 7% 0);
+  }
+
+  100% {
+    clip-path: inset(58% 0 43% 0);
+  }
+}
+
+.glitch-hover:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 red;
+  top: 0;
+  color: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pixel-border {
+  box-shadow:
+    -2px 0 0 0 var(--glass-border),
+    2px 0 0 0 var(--glass-border),
+    0 -2px 0 0 var(--glass-border),
+    0 2px 0 0 var(--glass-border);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  backdrop-filter: blur(10px);
+}
+
+/* --- Hackathon High-End FX --- */
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  animation: shine 4s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple::before,
+.animate-ripple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: ripple 3s infinite linear;
+  z-index: -1;
+}
+
+.animate-ripple::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 0 0 #4c1d95, 0 10px 20px rgba(109, 40, 217, 0.4);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: float-particle 8s infinite linear;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes pulse-core {
+  0% {
+    box-shadow: 0 0 20px var(--primary), 0 0 40px var(--accent);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 40px var(--primary), 0 0 80px var(--accent);
+    transform: scale(1.05);
+  }
+
+  100% {
+    box-shadow: 0 0 20px var(--primary), 0 0 40px var(--accent);
+    transform: scale(1);
+  }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--twinkle-duration) infinite ease-in-out;
+}
+
+.central-star {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fff 0%, var(--primary) 40%, var(--accent) 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-core 4s infinite ease-in-out;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.planet-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Interaction: Pause Orbit on Hover */
+.orbit-ring:hover .planet-wrapper,
+.planet:hover {
+  animation-play-state: paused;
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: var(--planet-color);
+  box-shadow: 0 0 15px var(--planet-color);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-top: calc(var(--planet-size) / -2);
+  margin-left: calc(var(--planet-size) / -2);
+  width: var(--planet-size);
+  height: var(--planet-size);
+}
+
+.planet:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px var(--planet-color);
+  z-index: 50;
+}
+
+/* Moon Animation */
+.moon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  animation: spin var(--moon-orbit-duration) linear infinite;
+  pointer-events: none;
+}
+
+.moon {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  /* Center the moon on the orbit line */
+  transition: all 0.2s;
+}
+
+.moon:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: white;
+  box-shadow: 0 0 10px white, 0 0 20px var(--accent);
+}
+
+/* Animations */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes neural-pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0));
+  }
+
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6));
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0));
+  }
+}
+
+@keyframes typing-cursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-neural-pulse {
+  animation: neural-pulse 2s infinite ease-in-out;
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: typing-cursor 0.8s infinite;
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+/* --- Quest UI Animations --- */
+@keyframes slide-down-fade {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hover-glow-pulse {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.2);
+  }
+
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down-fade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-hover-glow {
+  animation: hover-glow-pulse 3s infinite ease-in-out;
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
